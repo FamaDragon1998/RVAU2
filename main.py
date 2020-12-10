@@ -41,7 +41,9 @@ def stackImages(imgArray,scale,lables=[]):
     if len(lables) != 0:
         eachImgWidth= int(ver.shape[1] / cols)
         eachImgHeight = int(ver.shape[0] / rows)
+
         print(eachImgHeight)
+
         for d in range(0, rows):
             for c in range (0,cols):
                 cv2.rectangle(ver,(c*eachImgWidth, eachImgHeight*d), (c*eachImgWidth+len(lables[d]) * 13 + 27, 30 + eachImgHeight * d), (255, 255, 255), cv2.FILLED)
