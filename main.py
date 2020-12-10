@@ -19,10 +19,10 @@ def stackImages(imgArray,scale,lables=[]):
     cols = len(imgArray[0])
     rowsAvailable = isinstance(imgArray[0], list)
     if rowsAvailable:
-        for x in range ( 0, rows):
+        for x in range(0, rows):
             for y in range(0, cols):
                 imgArray[x][y] = cv2.resize(imgArray[x][y], (sizeW,sizeH), None, scale, scale)
-                if len(imgArray[x][y].shape) == 2: imgArray[x][y]= cv2.cvtColor( imgArray[x][y], cv2.COLOR_GRAY2BGR)
+                if len(imgArray[x][y].shape) == 2 : imgArray[x][y]= cv2.cvtColor(imgArray[x][y], cv2.COLOR_GRAY2BGR)
         imageBlank = np.zeros((sizeH, sizeW, 3), np.uint8)
         hor = [imageBlank]*rows
         hor_con = [imageBlank]*rows
@@ -44,8 +44,8 @@ def stackImages(imgArray,scale,lables=[]):
         print(eachImgHeight)
         for d in range(0, rows):
             for c in range (0,cols):
-                cv2.rectangle(ver,(c*eachImgWidth,eachImgHeight*d),(c*eachImgWidth+len(lables[d])*13+27,30+eachImgHeight*d),(255,255,255),cv2.FILLED)
-                cv2.putText(ver,lables[d],(eachImgWidth*c+10,eachImgHeight*d+20),cv2.FONT_HERSHEY_COMPLEX,0.7,(255,0,255),2)
+                cv2.rectangle(ver,(c*eachImgWidth, eachImgHeight*d), (c*eachImgWidth+len(lables[d]) * 13 + 27, 30 + eachImgHeight * d), (255, 255, 255), cv2.FILLED)
+                cv2.putText(ver, lables[d], (eachImgWidth*c+10, eachImgHeight*d+20), cv2.FONT_HERSHEY_COMPLEX, 0.7, (255, 0, 255), 2)
     return ver
 
 while True:
