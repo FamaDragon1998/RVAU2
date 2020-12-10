@@ -35,11 +35,11 @@ def stackImages(imgArray,scale,lables=[]):
         for x in range(0, rows):
             imgArray[x] = cv2.resize(imgArray[x], (sizeW, sizeH), None, scale, scale)
             if len(imgArray[x].shape) == 2: imgArray[x] = cv2.cvtColor(imgArray[x], cv2.COLOR_GRAY2BGR)
-        hor= np.hstack(imgArray)
-        hor_con= np.concatenate(imgArray)
+        hor = np.hstack(imgArray)
+        hor_con = np.concatenate(imgArray)
         ver = hor
     if len(lables) != 0:
-        eachImgWidth= int(ver.shape[1] / cols)
+        eachImgWidth = int(ver.shape[1] / cols)
         eachImgHeight = int(ver.shape[0] / rows)
 
         print(eachImgHeight)
